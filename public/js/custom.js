@@ -1,4 +1,7 @@
 $(document).ready(function(){
+
+    //home page slider 
+
     // LatestProductOwlCarousel
     $("#owl-demo").owlCarousel({
  
@@ -62,12 +65,14 @@ $(document).ready(function(){
  
          //Set AutoPlay to 1,5 seconds
         // autoPlay:2500,
+        
         items : 1,
         stopOnHover : true,
         slideSpeed : 300,
         paginationSpeed : 400,
         singleItem:true,
-        lazyLoad : true
+        lazyLoad : true,
+        nav:true,
    
         // "singleItem:true" is a shortcut for:
         // items : 1, 
@@ -229,7 +234,18 @@ $(document).ready(function(){
         });
     });
 
-    //Proceed to shipping btn 
+    //Product detail image onclick change
+
+    // const showImage = (imgName) => {
+    //     const curImage = document.getElementById('currentImg');  
+    //     console.log(imgName);
+    //     const theSource = imgName;
+    //     console.log(theSource);
+    //     curImage.src = theSource;
+    //     curImage.alt = imgName;
+    //     curImage.title = imgName;
+    // }
+    // showImage(imgName);
 
     
 });

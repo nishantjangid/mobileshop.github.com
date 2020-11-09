@@ -21,6 +21,8 @@ if(Session::has('user'))
     <link rel="stylesheet" type="text/css" href="{{asset('css/custom.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('css/owl.carousel.min.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('css/font-awesome.min.css')}}">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">    
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
 </head>
@@ -49,7 +51,7 @@ if(Session::has('user'))
       <div class="navbar-nav ml-auto pr-3">
         <a class="nav-item nav-link  navActive" href="/">Home <span class="sr-only">(current)</span></a>
         <a class="nav-item nav-link" href="/shop">Shop</a>
-        <a class="nav-item nav-link" href="/create">Contact Us</a>
+        <a class="nav-item nav-link" href="/contact-us">Contact Us</a>
         <a class="nav-item nav-link" href="/myaccount">My Account</a>        
         <a class="nav-item nav-link" href="/cart">Cart <i class="fa fa-shopping-cart"></i> ({{$total}})</a>
       </div>
@@ -62,7 +64,7 @@ if(Session::has('user'))
 @show
 </div>
 <!-- Content goes here... -->
-  <div class="content">
+  <div class="content" style="background-image: url({{asset('images/bg-patter.jpg')}})">
   @yield('content')    
   </div>
 <!-- Footer goes here... -->
@@ -137,5 +139,7 @@ if(Session::has('user'))
 <script src="{{asset('js/bootstrap.min.js')}}"></script>
 <script src="{{asset('js/jquery.zoom.js')}}"></script>
 <script src="{{asset('js/owl.carousel.min.js')}}"></script>
+<script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 </body>
 </html>

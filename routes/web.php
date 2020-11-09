@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\MailController;
 
 /*
 |--------------------------------------------------------------------------
@@ -45,7 +46,7 @@ Route::group(['middleware'=>['ProtectPage']],function(){
 });
 Route::post('changePrice',[ProductController::class,'changePrice']);
 Route::get('shop/{filter}',[ProductController::class,'getShopProduct']);
-// Route::view('shop','shop');
+
 Route::get('/search',[ProductController::class,'searchProduct']);
 Route::get('details/{productTitle}',[ProductController::class,'productDetails']);
 Route::view('registration','registration');
@@ -55,5 +56,7 @@ Route::view('productUpload','productsUpload');
 Route::post('insertProducts',[ProductController::class,'insertProducts']);
 Route::get('/',[ProductController::class,'getHomeProducts']);
 Route::get('shop',[ProductController::class,'getShopProduct']);
+Route::view('/contact-us','contact_us');
+Route::post('/contactus',[MailController::class,'SendEmail']);
 // Route::get('/detail',[ProductController::class,'proMayLike']);
 

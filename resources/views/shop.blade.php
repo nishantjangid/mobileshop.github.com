@@ -14,7 +14,7 @@
             <!-- SIDEBAR SECTION START-->
             <aside id="sidebar" class="allSectionMargin">
                 <!-- rangeFilter start -->
-                <div class="sideBarBox">
+                <div class="sideBarBox boxShadow">
                     <div class="rangeFilter">
                         <form method="get" action="{{URL::current()}}">
                             <div data-role="rangeslider" class="rangeslider">
@@ -29,7 +29,7 @@
                 <!-- rangeFilter end -->
 
                 <!-- ProductBrand start -->
-                <div class="sideBarBox">
+                <div class="sideBarBox boxShadow">
                     <div class="productBrand">
                         <h3>Brands</h3>
                         <ul class="BrandList">
@@ -45,7 +45,7 @@
                 <!-- ProductBrand End-->
 
                 <!-- Rating Filter start-->
-                <div class="sideBarBox">
+                <div class="sideBarBox boxShadow">
                     <div class="ratingFilter">
                         <h3>Rating Filter</h3>
                         <span class="rating">

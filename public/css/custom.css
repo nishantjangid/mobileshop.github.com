@@ -31,7 +31,7 @@ html{
 .boxShadow
 {
     box-shadow: 0px 0px 56px -8px rgba(0, 0, 0, 0.17);
-
+    background: #fff;
 }
 .allSectionMargin
 {
@@ -113,6 +113,32 @@ html{
     font-weight: 600;
     box-shadow: 0px 1px 6px 0px #3c3b3b;
 }
+
+/* Home page css */
+.swiper-container {
+    width: 100%;
+    height: 100%;
+  }
+
+  .swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+
+    /* Center slide text vertically */
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+  }
 
 /*User Panel style */
 .UserPanel{
@@ -216,7 +242,7 @@ html{
 /* ourLatestProducts Css */
 .ourLatestProducts
 {
-    background: #fbfbfb;
+    background: #fff;
 }
 /* .ourLatestProducts::before
 {
@@ -269,6 +295,7 @@ html{
     margin: 1rem;   
     position: relative;
     overflow: hidden;
+    background: #fff;
     /* transition: 0.5s ease-in-out; */
 }
 .LatestProductgallery .galleryImage .discountBatch
@@ -453,8 +480,7 @@ nav .breadcrumb li a
     max-width: 250px;
     min-width: 200px;
     width: 250px;
-    border-radius: 2rem;
-    box-shadow: 0px 0px 56px -8px rgba(0, 0, 0, 0.17);
+    border-radius: 2rem;   
     margin-bottom: 2rem;
 }
 #sidebar .rangeFilter
@@ -1086,6 +1112,11 @@ nav .breadcrumb li a
     {
         font-size: 50%;
     }    
+    .ourOfferSection .owl-carousel .item{
+        max-width: 100%;
+        min-width: 100%;
+        margin-left: 1rem;
+    }
 
     #cartWrapper .cartBxHeight
     {

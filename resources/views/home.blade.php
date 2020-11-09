@@ -9,7 +9,7 @@
     <div class="row allSectionSpaces">
         <!-- Static Single Item Start -->
         <div class="col-lg-3 col-xs-12 col-md-6 col-sm-6">
-            <div class="single-static">
+            <div class="single-static bg-white">
                 <img src="{{asset('images/static-icons-1.png')}}" alt="" class="img-responsive" />
                 <div class="single-static-meta">
                     <h4>Free Shipping</h4>
@@ -20,7 +20,7 @@
         <!-- Static Single Item End --> 
         <!-- Static Single Item Start -->
         <div class="col-lg-3 col-xs-12 col-md-6 col-sm-6">
-            <div class="single-static">
+            <div class="single-static bg-white">
                 <img src="{{asset('images/static-icons-2.png')}}" alt="" class="img-responsive" />
                 <div class="single-static-meta">
                     <h4>Free Returns</h4>
@@ -31,7 +31,7 @@
         <!-- Static Single Item End --> 
         <!-- Static Single Item Start -->
         <div class="col-lg-3 col-xs-12 col-md-6 col-sm-6">
-            <div class="single-static">
+            <div class="single-static bg-white">
                 <img src="{{asset('images/static-icons-3.png')}}" alt="" class="img-responsive" />
                 <div class="single-static-meta">
                     <h4>Support 24/7</h4>
@@ -42,7 +42,7 @@
         <!-- Static Single Item End --> 
         <!-- Static Single Item Start -->
         <div class="col-lg-3 col-xs-12 col-md-6 col-sm-6">
-            <div class="single-static">
+            <div class="single-static bg-white">
                 <img src="{{asset('images/static-icons-4.png')}}" alt="" class="img-responsive" />
                 <div class="single-static-meta">
                     <h4>100% Payment Secure</h4>
@@ -107,11 +107,9 @@
                 <div class="productDetails">
                     <h4>{{$items->product_title}}</h4>
                     <span class="rating">
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
+                    @for($i=0; $i<5; $i++)
+                        <i class="fa fa-star"></i>
+                    @endfor
                     </span>
                     <p class="text-center">Rs. {{  number_format($items->product_price-$items->product_discount, 2, '.', ',') }}
                     @if($discount>0)
@@ -140,14 +138,15 @@
                         <h3>Our Latest Offers</h3>
                     </div>  
                 <div id="owl-demo" class="OfferImageMar">
-                    <a href=""><div class="item"><img src="{{asset('images/Offer-Image-1.jpg')}}" alt=""></div><a>
-                    <a href=""><div class="item"><img src="{{asset('images/Offer-Image-1.jpg')}}" alt=""></div><a>
-                    <a href=""><div class="item"><img src="{{asset('images/Offer-Image-1.jpg')}}" alt=""></div><a>
-                    <a href=""><div class="item"><img src="{{asset('images/Offer-Image-1.jpg')}}" alt=""></div><a>
-                    <a href=""><div class="item"><img src="{{asset('images/Offer-Image-1.jpg')}}" alt=""></div><a>
-                    <a href=""><div class="item"><img src="{{asset('images/Offer-Image-1.jpg')}}" alt=""></div><a>
-                    <a href=""><div class="item"><img src="{{asset('images/Offer-Image-1.jpg')}}" alt=""></div><a>
-                    <a href=""><div class="item"><img src="{{asset('images/Offer-Image-1.jpg')}}" alt=""></div><a>
+                   <div class="item"><a href=""><img src="{{asset('images/Offer-Image-1.jpg')}}" alt=""></a></div>
+                   <div class="item"><a href=""><img src="{{asset('images/Offer-Image-1.jpg')}}" alt=""></a></div>
+                   <div class="item"><a href=""><img src="{{asset('images/Offer-Image-1.jpg')}}" alt=""></a></div>
+                   <div class="item"><a href=""><img src="{{asset('images/Offer-Image-1.jpg')}}" alt=""></a></div>
+                   <div class="item"><a href=""><img src="{{asset('images/Offer-Image-1.jpg')}}" alt=""></a></div>
+                   <div class="item"><a href=""><img src="{{asset('images/Offer-Image-1.jpg')}}" alt=""></a></div>
+                   <div class="item"><a href=""><img src="{{asset('images/Offer-Image-1.jpg')}}" alt=""></a></div>
+                   <div class="item"><a href=""><img src="{{asset('images/Offer-Image-1.jpg')}}" alt=""></a></div>
+                    
                 </div>            
             </div>        
         </div> 

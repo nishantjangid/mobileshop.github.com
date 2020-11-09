@@ -21,27 +21,27 @@ $discount = round(($productInfo->product_discount/$productInfo->product_price)*1
     <div class="row">
         <div class="col-md-4 col-lg-2 col-sm-4 col-4">
             <div class="leftSideImageGrid">
-                <div class="SampleImage lazyOwl">
-                    <img src="{{asset($productInfo->product_img1)}}" alt="">
+                <div class="SampleImage boxShadow lazyOwl">
+                    <img src="{{asset($productInfo->product_img1)}}" alt="" onclick="showImage({{asset($productInfo->product_img1)}});">
                 </div>
-                <div class="SampleImage lazyOwl">
-                    <img src="{{asset($productInfo->product_img2)}}" alt="">
+                <div class="SampleImage boxShadow lazyOwl">
+                    <img src="{{asset($productInfo->product_img2)}}" alt="" onclick="showImage('{{asset($productInfo->product_img2)}}');">
                 </div>
-                <div class="SampleImage lazyOwl">
-                    <img src="{{asset($productInfo->product_img3)}}" alt="">
+                <div class="SampleImage boxShadow lazyOwl">
+                    <img src="{{asset($productInfo->product_img3)}}" alt="" onclick="showImage('{{asset($productInfo->product_img3)}}');">
                 </div>
-                <div class="SampleImage lazyOwl">
-                    <img data-target="#productSlider"  src="{{asset($productInfo->product_img4)}}" alt="">
+                <div class="SampleImage boxShadow lazyOwl">
+                    <img data-target="#productSlider"  src="{{asset($productInfo->product_img4)}}" alt="" onclick="showImage('{{asset($productInfo->product_img4)}}');">
                 </div>                                                
             </div>
         </div>
         <div class="col-md-8 col-lg-6 col-sm-8 col-8">
             <div class="bigSampleImage">
-                <div id="productDetailSlider" class="owl-carousel owl-theme">
-                    <div id="productSlider" class="item lazyOwl zoom productDetailImg"><img src="{{asset($productInfo->product_img1)}}" alt=""></div>
-                    <div id="productSlider" class="item lazyOwl productDetailImg zoom"><img src="{{asset($productInfo->product_img2)}}" alt=""></div>
-                    <div id="productSlider" class="item lazyOwl productDetailImg zoom"><img src="{{asset($productInfo->product_img3)}}" alt=""></div>
-                    <div id="productSlider" class="item lazyOwl productDetailImg zoom"><img src="{{asset($productInfo->product_img4)}}" alt=""></div>
+                <div id="productDetailSlider" class="owl-carousel boxShadow owl-theme">
+                    <div id="productSlider" id="currentImg" class="item lazyOwl zoom productDetailImg"><img src="{{asset($productInfo->product_img1)}}" alt=""></div>
+                    <div id="productSlider"  class="item lazyOwl productDetailImg zoom"><img src="{{asset($productInfo->product_img2)}}" alt=""></div>
+                    <div id="productSlider"  class="item lazyOwl productDetailImg zoom"><img src="{{asset($productInfo->product_img3)}}" alt=""></div>
+                    <div id="productSlider"  class="item lazyOwl productDetailImg zoom"><img src="{{asset($productInfo->product_img4)}}" alt=""></div>
                     <div id="productSlider" class="item lazyOwl productDetailImg zoom"><img src="{{asset($productInfo->product_img1)}}" alt=""></div>
                 </div>                
             </div>
@@ -56,8 +56,8 @@ $discount = round(($productInfo->product_discount/$productInfo->product_price)*1
                 </div>   
               
                 <div class="brandPrice">
-                    <span>Rs. {{  number_format($productInfo->product_price-$productInfo->product_discount, 2, '.', ',') }}
-                     @if($discount>0)  / Rs.<strike> {{ number_format( $productInfo->product_price, 2, '.', ',' ) }}</strike> ({{ $discount}} %) OFF @endif </span>
+                    <span>Rs. <span id="salePrice">{{  number_format($productInfo->product_price-$productInfo->product_discount, 2, '.', ',') }}</span>
+                     @if($discount>0)  / Rs.<strike id="listPrice"> {{ number_format( $productInfo->product_price, 2, '.', ',' ) }}</strike> ({{ $discount}} %) OFF @endif </span>
                 </div>  
 
                 <form action="/add_to_cart" method="post">
