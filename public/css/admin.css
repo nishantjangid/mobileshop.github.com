@@ -1,0 +1,292 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+/* customer css for this project here.. */
+*{
+    padding:0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+::selection {
+    color: #fff;
+    background: #193c3c;
+}
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+background: transparent; 
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+background: rgba(0, 0, 0, 0.2); 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+background: transparent; 
+}
+
+html{
+    font-size: 62.5%;
+    scroll-behavior: smooth;
+}
+h1{
+    font-size: 4rem;
+}
+h2{
+    font-size: 3.5rem;
+}
+h3{
+    font-size: 3rem;
+}
+h4{
+    font-size: 2.5rem;
+}
+h5{
+    font-size: 1.5rem;
+}
+ul li{
+    font-size: 1.5rem;
+}
+/* sidebar page css */
+.adminpanel{
+    display: flex;
+    flex-direction: row;
+}
+.admin-container{
+    padding: 4rem 5rem;
+}
+#sidebar
+{
+
+    max-width: 300px;
+    min-width: 300px;
+    height: 100vh;
+    overflow-y: scroll;
+    background: #ccc;
+    display: block;
+    background: #132525;
+    border-right:2px solid #ccc;
+    position: relative;
+    transition: all .3s ease;
+    color: #779c9c;
+}
+.sidebar-collapse{
+    margin-left: -300px;
+}
+#sidebar .sidebarHeader
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 2.5rem 2rem;
+    position: sticky;
+    top: 0;
+    left: 0;
+    transition: all 1s ease;
+    border-bottom: 1px solid #779c9c;
+}
+#sidebar .companyIcon
+{
+    width: 100%;
+    display: inline-block;
+}
+#sidebar .companyIcon img
+{
+    width: 100%;
+}
+
+#sidebar .sidebarBody
+{
+    padding: 1rem 2rem;
+}
+#sidebar .sidebarBody ul
+{   
+    list-style: none;
+}
+#sidebar .sidebarBody ul li{
+    display: block;
+    padding: 1rem 0;
+}
+#sidebar .sidebarBody ul li a{
+    text-decoration: none;
+    color: #779c9c;
+
+}
+#sidebar .sidebarBody ul li a{
+    display: block;
+    cursor: pointer;
+
+}
+
+#sidebar .sidebarBody ul li.dropdown-head a
+{
+    display: inline;
+}
+#sidebar .sidebarBody ul li>ul.dropdownMenu li
+{
+    padding: 0.5rem 1rem;
+    background: #2d5656;
+
+}
+#sidebar .sidebarBody ul li>ul.dropdownMenu li a{
+    display: block;
+}
+#sidebar .sidebarBody ul li>ul.childMenu1
+{
+    display: none;
+}
+#sidebar .sidebarBody ul li>ul.childMenu2
+{
+    display: none;
+}
+#sidebar .sidebarBody ul li>ul.childMenu3
+{
+    display: none;
+}
+
+/* breadcrumb css  Start*/
+.breadcrumb
+{
+    padding: 1.5rem 3rem;
+    font-size: 1.5rem;
+    background: transparent;
+    border-bottom: 1px solid #000;
+
+}
+.breadcrumb li.breadcrumb-item.active{
+    color: #fff;
+}
+.breadcrumb li a{
+    color: #779c9c;
+}
+/* breadcrumb css  End*/
+
+/* dashboard page css */
+#dashboard
+{
+    width: 100%;
+    height: 100vh;
+    overflow-y: scroll;
+    background: #132525;
+    color: #779c9c;
+}
+/* .dashboardTopPadding
+{
+    padding-top: 15px;
+} */
+.boxShadow
+{
+    box-shadow: -8px 12px 18px 0 rgb(15 27 27);
+    background: #183535;
+}
+#dashboard .dashboardHeader
+{
+    border-bottom: 1px solid #2d5656;
+    position: sticky;
+    top: 0;
+	box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    background-color: #779c9c;
+    color: #193c3c;
+    z-index: 2;
+    
+}
+#dashboard .dashboardHeader .toggleBtn
+{
+    background: #132525;
+    color: #779c9c;
+    border: none;
+}
+#dashboard .dashboardHeader .toggleBtn i{
+    transition:all 3s ease;
+}
+#dashboard .dashboardHeader .dashboardMenu .profileImage
+{
+    border-radius: 100%;
+    overflow: hidden;
+    height: 55px;
+    width: 55px;
+    object-fit: cover;
+    position: relative;
+}
+
+#dashboard .dashboardHeader .dashboardMenu .profileImage img
+{
+    width: 100%;
+    position: absolute;
+}
+
+/* Insert Product Page css */
+#dashboard .formContainer
+{
+    padding: 2rem 0;
+}
+#dashboard form input[type=text],#dashboard form select,#dashboard form input[type=file]
+{
+    font-size: 1.5rem;
+    border-radius: none;
+    padding-bottom: 0.5rem;
+}
+#dashboard form input[type=text]:focus,#dashboard form select:focus,#dashboard form input[type=file]:focus,#dashboard form button:focus,#dashboard form textarea:focus
+{
+    box-shadow: none;
+    border: 1px solid #000;
+}
+#dashboard form textarea{
+    font-size: 1.5rem;
+    border-radius: none;
+}
+#dashboard form button{
+    background: #000;
+    color: #fff;
+    font-size: 1.5rem;
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: none;
+    transition: all .5s ease;
+}
+#dashboard form button:hover{
+    background: #fff;
+    color: #000;
+}
+#dashboard table
+{
+    overflow-y: scroll;
+    width:100% !important;
+}
+#dashboard table thead tr td{
+    font-size: 1.5rem;
+}
+#dashboard table tbody tr td span a i
+{
+    font-size: 2rem;
+}
+#dashboard table tbody tr td{
+    font-size: 1.5rem;
+}
+.dataTables_wrapper .dataTables_length select
+{
+    color:#fff;
+    background-color: #000 !important;
+    font-size: 1.5rem;
+    /* margin-left: -2rem !important; */
+}
+.dataTables_wrapper .dataTables_filter input
+{
+    font-size: 1.5rem;
+    color: #fff !important;
+    background-color: #000 !important;
+}
+.dataTables_wrapper .dataTables_length, .dataTables_wrapper .dataTables_filter, .dataTables_wrapper .dataTables_info, .dataTables_wrapper .dataTables_processing, .dataTables_wrapper .dataTables_paginate
+{
+    font-size: 1.5rem;
+    color: #fff !important;
+}
+.dataTables_wrapper .dataTables_paginate .paginate_button.disabled, .dataTables_wrapper .dataTables_paginate .paginate_button.disabled:hover, .dataTables_wrapper .dataTables_paginate .paginate_button.disabled:active
+{
+    color: #fff !important;
+
+}

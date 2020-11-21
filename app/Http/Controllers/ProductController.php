@@ -7,40 +7,14 @@ use App\Models\Product;
 use App\Models\Cart;
 use App\Models\Category;
 use App\Models\Order;
+use App\Models\wishlist;
+
 use Illuminate\Support\Facades\DB;
 use Session;
 
 class ProductController extends Controller
 {
-    //
-    public function insertProducts(Request $req)
-    {
-        $filemodel = new Product;
-         $req->input();
-        // $req->file('product_img1');
-        $filemodel->category_id = $req->category_id;
-        $filemodel->product_title = $req->product_title;
-        $filemodel->product_description = $req->product_description;
-        $filemodel->product_price = $req->product_price;
-        $filemodel->product_label = $req->product_label;
 
-        $fileName = time().'_'.$req->file('product_img1')->getClientOriginalName();
-        $filePath1 = $req->file('product_img1')->storeAs('productImages', $fileName, 'public');
-        $fileName = time().'_'.$req->file('product_img2')->getClientOriginalName();
-        $filePath2 = $req->file('product_img2')->storeAs('productImages', $fileName, 'public');
-        $fileName = time().'_'.$req->file('product_img3')->getClientOriginalName();
-        $filePath3 = $req->file('product_img3')->storeAs('productImages', $fileName, 'public');
-        $fileName = time().'_'.$req->file('product_img4')->getClientOriginalName();
-        $filePath4 = $req->file('product_img4')->storeAs('productImages', $fileName, 'public');
-        $filemodel->product_img1 =  $filePath1;
-        $filemodel->product_img2 =  $filePath2;
-        $filemodel->product_img3 =  $filePath3;
-        $filemodel->product_img4 =  $filePath4;
-
-        $filemodel->save();
-        // return $filemodel;
-        return "Product successfully uploaded";
-    }
 
     public function getHomeProducts()
     {
@@ -160,7 +134,11 @@ class ProductController extends Controller
 
     function deleteItemFromCart($id)
     {
-        Cart::destroy($id);
+        $customer_id = Session::get('user')['id'];
+        DB::table('cart')
+        ->where('id','=',$id)
+        ->where('customer_id','=',$customer_id)
+        ->delete();
         return redirect('cart');
     }
 
@@ -260,4 +238,73 @@ class ProductController extends Controller
         return view('payments');
 
     }
+
+    function wishlist($id){
+        // return $id;
+        $customer_id = Session::get('user')['id']; 
+        $allCart = Cart::where('customer_id',$customer_id)
+        ->where('product_id',$id)
+        ->get();
+        foreach($allCart as $cart)
+        {
+            $wishlist = new wishlist;
+            $wishlist->product_id = $cart['product_id'];
+            $wishlist->customer_id = $cart['customer_id'];
+            $wishlist->product_qty = $cart['product_qty'];
+            $wishlist->save();
+        }        
+        Cart::where('product_id',$id)
+        ->where('customer_id',$customer_id)
+        ->delete();
+
+        session()->flash('alertSuccess');            
+        return redirect('/cart');
+    }
+
+    public function wishLists()
+    {
+        $customer_id = Session::get('user')['id'];
+        // return $cartItemCount;
+        $wishlists = DB::table('wishlists')
+        ->join('products','wishlists.product_id','=','products.id')
+        ->where('wishlists.customer_id',$customer_id)
+        ->select('products.*','wishlists.id as wishlist_id','wishlists.product_qty as qty')
+        ->get();
+        // return $cartDetails;
+        return view('wishlist',['wishlists'=>$wishlists]);
+    }    
+
+    function DeletewishList($id)
+    {
+        $customer_id = Session::get('user')['id'];
+        DB::table('wishlists')
+        ->where('id','=',$id)
+        ->where('customer_id','=',$customer_id)
+        ->delete();
+        return redirect('wishlist');
+    }
+
+    function wishlistToCart($id){
+        $customer_id = Session::get('user')['id']; 
+        $allwishlist = wishlist::where('customer_id',$customer_id)
+        ->where('product_id',$id)
+        ->get();
+        foreach($allwishlist as $wishlist)
+        {
+            $cart = new Cart;
+            $cart->product_id = $wishlist['product_id'];
+            $cart->customer_id = $wishlist['customer_id'];
+            $cart->product_qty = $wishlist['product_qty'];
+            $cart->save();
+        }        
+        wishlist::where('product_id',$id)
+        ->where('customer_id',$customer_id)
+        ->delete();
+
+        session()->flash('alertSuccess');            
+        return redirect('/wishlist');        
+    }
+
+    // admin area
+
 }

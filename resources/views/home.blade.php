@@ -79,7 +79,7 @@
             </div>  
         </div>
         
-        <div class="proFilterButtons">
+        <div class="proFilterButtons my-5">
             <button type="button" class="btn btn-default allBtnStyle filterBtn btnActive" data-filter="All">All</button>            
             <button type="button" class="btn btn-default allBtnStyle filterBtn" data-filter="Newest">Newest</button>
             <button type="button" class="btn btn-default allBtnStyle filterBtn" data-filter="Oldest">Oldest</button>

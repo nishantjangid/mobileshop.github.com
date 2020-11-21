@@ -12,15 +12,17 @@
     <div class="row"> <!-- row start -->
 
 
-        <div class="col-md-12 col-lg-8 col-12">
+        <div class="col-md-12 col-lg-10 offset-lg-1 col-12">
             <!-- PRODUCTS LIST START -->
-            @if($products == '[]')
+            @if($products->isEmpty())
             <div class="SearchResultBox">
-            
-            <p>Result not found for {{ $getUrlParameter = \Request::fullUrl() }}  </p>
+                <p>Result not found for {{ $getUrlParameter = \Request::fullUrl() }}  </p>
             </div>
             @endif
             <div class="productList">
+                <div class="text-left my-4 bg-white">
+                    <h2 class=" font-weight-bold ">Result found for {{ $getUrlParameter = \Request::fullUrl() }} </h2>
+                </div>
                 <div class="LatestProductgallery">
                 @foreach($products as $items)
 

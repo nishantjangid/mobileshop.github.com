@@ -18,6 +18,12 @@ $totalPrice = 0;
             </ol>
     </nav>
 </div>
+@if(session('alertSuccess'))
+<div class="alert alert-danger alert-box alert-dismissible fade show mx-5">
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+    <strong style="font-size: 2rem;">Item Successfully added into Wishlist visit <a href="/wishlist"><b>Wishlist</b></a></strong>.
+</div>
+@endif     
 <!-- CartItemsArea Start-->
 <div id="cartWrapper">    
     <!-- <div class="row">
@@ -158,7 +164,7 @@ $totalPrice = 0;
                     </div>           
                     <div class="productAction">
                         <a href="delete/{{$items->cart_id}}" class="text-danger" id="cartDeleteBtn">Delete <i class="fa fa-trash"></i></a>
-                        <a href="delete" class="allBtnStyle ">Move to wishlist <i class="fa fa-heart"></i></a>            
+                        <a href="/wishlist/{{$items->id}}" class="allBtnStyle wishListBtn">Move to wishlist <i class="fa fa-heart"></i></a>            
                     </div>                         
                 </div>   
 
@@ -166,6 +172,7 @@ $totalPrice = 0;
             @endforeach
         </div>
         <div class="col-lg-3 col-md-3 col-sm-12">
+        @if($totalPrice != 0)
             <div class="orderDetails boxShadow">
                 <div class="priceDetail">
                     <h4>Order Details</h4>
@@ -195,7 +202,7 @@ $totalPrice = 0;
                     </div>                                        
                 </div>
                 <div class="">
-                <a href="/cart/payments" class="proceedtoShipBtn btn allBtnStyle">Proceed To Shipping</a>
+                <a href="/cart/checkout" class="proceedtoShipBtn btn allBtnStyle">Proceed To Shipping</a>
                 </div>                                                           
             </div>
 
@@ -209,6 +216,7 @@ $totalPrice = 0;
                     </div>                    
                 </div>                
             </div>
+            @endif
         </div>        
     </div>
 </div>

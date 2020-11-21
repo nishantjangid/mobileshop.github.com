@@ -11,19 +11,10 @@
     <div class="row">
         @include('sweet::alert')
         <div class="col-md-3 col-sm-12">
-            <div class="boxShadow">
-                <div class="customerMenu">
-                    <h3>My Account</h3>
-                    <ul>
-                        <li><a href="/myaccount">Personal Information</a></li>
-                        <li><a href="/myaccount/delete-account">Delete Account</a></li>
-                        <li><a href="/help">Help</a></li>
-                    </ul>
-                </div>
-            </div>
+            @include('account_sidebar')
         </div>
-        <div class="col-md-9 col-sm-12">
-            <div class="formContainer allSectionMargin  boxShadow" id="customerProfileForm">
+        <div class="col-md-9 col-sm-12 accountPage">
+            <div class="formContainer allSectionMargin  boxShadow accountSections" id="customerProfileForm">
                 <div class="formHeading contentHeading text-center">
                     <h3>Personal Information</h3>
                 </div>
@@ -49,7 +40,7 @@
                         <button type="submit" name="submit" class="allBtnStyle customerUpdateBtn">Update</button>
                     </div>      
                 </form>        
-            </div>
+            </div>          
         </div>    
     </div>
 </div>

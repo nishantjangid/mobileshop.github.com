@@ -3,6 +3,29 @@ $(document).ready(function(){
     //home page slider 
 
     // LatestProductOwlCarousel
+
+    $('.demo').slick({
+        prevArrow:'<button type="button" data-role="none" class="slick-prev">Previous</button>',
+        nextArrow:'<button type="button" data-role="none" class="slick-next">Next</button>',
+        autoplay:true,
+        // autoplaySpeed: 1000,
+        pauseOnHover:true,
+        pauseOnFocus:true,
+        waitForAnimate:true,
+
+        
+    });
+    // ProductImageZoom
+    $('#productSlider').zoom({ on:'click' });    
+
+    //product Image view on click
+    $('.SampleImage').on('click', function(){
+        const sampleIndex = $(this).attr('data-index');
+        const BigIndex = $('.slick-slide').find(`[data-slick-index=${sampleIndex}]`).addClass('slick-current slick-active');
+        console.log(BigIndex);
+    });
+
+
     $("#owl-demo").owlCarousel({
  
         autoPlay: 1500, //Set AutoPlay to 1,5 seconds
@@ -30,6 +53,7 @@ $(document).ready(function(){
         $(this).addClass('btnActive').siblings().removeClass('btnActive');
     });
 
+    
     $('.nav-item').click(function(){
         $(this).addClass('navActive').siblings().removeClass('navActive');
     });    
@@ -83,8 +107,7 @@ $(document).ready(function(){
    
     });    
 
-    // ProductImageZoom
-    $('#productSlider').zoom({ on:'click' });
+
 
     // ProductQuantity
     var proQty = 1;
@@ -247,5 +270,4 @@ $(document).ready(function(){
     // }
     // showImage(imgName);
 
-    
 });

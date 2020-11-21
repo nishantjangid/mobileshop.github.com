@@ -21,29 +21,46 @@ $discount = round(($productInfo->product_discount/$productInfo->product_price)*1
     <div class="row">
         <div class="col-md-4 col-lg-2 col-sm-4 col-4">
             <div class="leftSideImageGrid">
-                <div class="SampleImage boxShadow lazyOwl">
-                    <img src="{{asset($productInfo->product_img1)}}" alt="" onclick="showImage({{asset($productInfo->product_img1)}});">
+                <div class="SampleImage boxShadow lazyOwl" data-index="1">
+                    <img src="{{asset($productInfo->product_img1)}}" alt="" >
                 </div>
-                <div class="SampleImage boxShadow lazyOwl">
-                    <img src="{{asset($productInfo->product_img2)}}" alt="" onclick="showImage('{{asset($productInfo->product_img2)}}');">
+                <div class="SampleImage boxShadow lazyOwl" data-index="2">
+                    <img src="{{asset($productInfo->product_img2)}}" alt="">
                 </div>
-                <div class="SampleImage boxShadow lazyOwl">
-                    <img src="{{asset($productInfo->product_img3)}}" alt="" onclick="showImage('{{asset($productInfo->product_img3)}}');">
+                <div class="SampleImage boxShadow lazyOwl" data-index="3">
+                    <img src="{{asset($productInfo->product_img3)}}" alt="" >
                 </div>
-                <div class="SampleImage boxShadow lazyOwl">
-                    <img data-target="#productSlider"  src="{{asset($productInfo->product_img4)}}" alt="" onclick="showImage('{{asset($productInfo->product_img4)}}');">
+                <div class="SampleImage boxShadow lazyOwl" data-index="4">
+                    <img  src="{{asset($productInfo->product_img4)}}" alt="">
                 </div>                                                
             </div>
         </div>
         <div class="col-md-8 col-lg-6 col-sm-8 col-8">
             <div class="bigSampleImage">
-                <div id="productDetailSlider" class="owl-carousel boxShadow owl-theme">
-                    <div id="productSlider" id="currentImg" class="item lazyOwl zoom productDetailImg"><img src="{{asset($productInfo->product_img1)}}" alt=""></div>
-                    <div id="productSlider"  class="item lazyOwl productDetailImg zoom"><img src="{{asset($productInfo->product_img2)}}" alt=""></div>
-                    <div id="productSlider"  class="item lazyOwl productDetailImg zoom"><img src="{{asset($productInfo->product_img3)}}" alt=""></div>
-                    <div id="productSlider"  class="item lazyOwl productDetailImg zoom"><img src="{{asset($productInfo->product_img4)}}" alt=""></div>
-                    <div id="productSlider" class="item lazyOwl productDetailImg zoom"><img src="{{asset($productInfo->product_img1)}}" alt=""></div>
-                </div>                
+                {{-- <div id="productDetailSlider" class="owl-carousel boxShadow owl-theme">
+                    <div id="productSlider"  data-index="1" id="currentImg" class="item lazyOwl zoom productDetailImg"><img src="{{asset($productInfo->product_img1)}}" alt=""></div>
+                    <div id="productSlider"  data-index="2" class="item lazyOwl productDetailImg zoom"><img src="{{asset($productInfo->product_img2)}}" alt=""></div>
+                    <div id="productSlider" data-index="3"  class="item lazyOwl productDetailImg zoom"><img src="{{asset($productInfo->product_img3)}}" alt=""></div>
+                    <div id="productSlider" data-index="4"  class="item lazyOwl productDetailImg zoom"><img src="{{asset($productInfo->product_img4)}}" alt=""></div>                    
+                </div>                 --}}
+                <div class="slider demo" id="productDetailSlider">
+                      <div id="productSlider"  data-index="1" class="item  zoom productDetailImg">
+                        <img src="{{asset($productInfo->product_img1)}}" alt="">
+                      </div>
+
+                      <div id="productSlider"  data-index="2" class="item  zoom productDetailImg">
+                        <img src="{{asset($productInfo->product_img2)}}" alt="">
+                      </div>
+
+                      <div id="productSlider"  data-index="3" class="item  zoom productDetailImg">
+                        <img src="{{asset($productInfo->product_img3)}}" alt="">
+                      </div>
+
+                      <div id="productSlider"  data-index="4" class="item  zoom productDetailImg">
+                        <img src="{{asset($productInfo->product_img4)}}" alt="">
+                      </div>                      
+                </div>
+                    
             </div>
         </div>
         <div class="col-md-12 col-lg-4 col-12">
