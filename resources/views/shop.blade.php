@@ -80,11 +80,11 @@
                             <p>({{$discount}} %) OFF</p>
                         </div>
                         @endif
-                        <a href="details/{{$items->product_title}}">
+                        <a href="details/{{$items->product_url}}">
                             <img src="{{asset($items->product_img1)}}" alt="ProductImage1">
                         </a>
                         <div class="ProductBtn">
-                            <a href="details/{{$items->product_title}}" class="btn btn-default allBtnStyle viewBtn" >View Details</a>
+                            <a href="details/{{$items->product_url}}" class="btn btn-default allBtnStyle viewBtn" >View Details</a>
                                             
                         </div>    
                         <div class="productDetails">

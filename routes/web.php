@@ -54,7 +54,7 @@ Route::post('changePrice',[ProductController::class,'changePrice']);
 Route::get('shop/{filter}',[ProductController::class,'getShopProduct']);
 
 Route::get('/search',[ProductController::class,'searchProduct']);
-Route::get('details/{productTitle}',[ProductController::class,'productDetails']);
+Route::get('details/{productUrl}',[ProductController::class,'productDetails']);
 Route::view('registration','registration');
 Route::post('/login',[UserController::class,'login']);
 Route::post('registration',[UserController::class,'registration']);

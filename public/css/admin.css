@@ -290,3 +290,16 @@ ul li{
     color: #fff !important;
 
 }
+
+
+/* view Slider page css */
+
+
+
+
+@media (max-width: 768px) {  
+    /* admin-area css */
+    .admin-container {
+        padding: 2rem 2rem;
+    }    
+}

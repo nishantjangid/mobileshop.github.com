@@ -8,6 +8,7 @@ use App\Models\Cart;
 use App\Models\Category;
 use App\Models\Order;
 use App\Models\wishlist;
+use App\Models\slider;
 
 use Illuminate\Support\Facades\DB;
 use Session;
@@ -22,14 +23,15 @@ class ProductController extends Controller
         ->limit(8)
         ->orderBy('id','desc')
         ->get();
-        return view('home',['products'=>$products]);
+        $slider = DB::table('sliders')->get();
+        return view('home',['products'=>$products,'slider'=>$slider]);
     }
 
-    public function productDetails($productTitle)
+    public function productDetails($productUrl)
     {
         $product = DB::table('products')
         ->select('*')
-        ->where('product_title','=',$productTitle)
+        ->where('product_url','=',$productUrl)
         ->first();
         // return $product;
         return view('product_detail',['productInfo'=>$product]);
@@ -245,13 +247,23 @@ class ProductController extends Controller
         $allCart = Cart::where('customer_id',$customer_id)
         ->where('product_id',$id)
         ->get();
+
         foreach($allCart as $cart)
         {
-            $wishlist = new wishlist;
-            $wishlist->product_id = $cart['product_id'];
-            $wishlist->customer_id = $cart['customer_id'];
-            $wishlist->product_qty = $cart['product_qty'];
-            $wishlist->save();
+            $allwishlist = wishlist::where('customer_id',$customer_id)
+            ->where('product_id',$cart['product_id'])
+            ->count();            
+            if($allwishlist==1)
+            {
+                alert()->warning('Item is already in the wishlist')->persistent('Close')->autoClose(3000);        
+                return redirect('/cart');                
+            }else{
+                $wishlist = new wishlist;
+                $wishlist->product_id = $cart['product_id'];
+                $wishlist->customer_id = $cart['customer_id'];
+                $wishlist->product_qty = $cart['product_qty'];
+                $wishlist->save();  
+            }      
         }        
         Cart::where('product_id',$id)
         ->where('customer_id',$customer_id)
@@ -288,14 +300,25 @@ class ProductController extends Controller
         $customer_id = Session::get('user')['id']; 
         $allwishlist = wishlist::where('customer_id',$customer_id)
         ->where('product_id',$id)
-        ->get();
+        ->get();        
         foreach($allwishlist as $wishlist)
         {
-            $cart = new Cart;
-            $cart->product_id = $wishlist['product_id'];
-            $cart->customer_id = $wishlist['customer_id'];
-            $cart->product_qty = $wishlist['product_qty'];
-            $cart->save();
+            $allCart = Cart::where('customer_id',$customer_id)
+            ->where('product_id',$wishlist['product_id'])
+            ->count();
+            if($allCart==1)
+            {
+                session()->flash('alertWrong');            
+                return redirect('/wishlist');
+            
+            }else{
+                $cart = new Cart;
+                $cart->product_id = $wishlist['product_id'];
+                $cart->customer_id = $wishlist['customer_id'];
+                $cart->product_qty = $wishlist['product_qty'];
+                $cart->save();
+            }          
+
         }        
         wishlist::where('product_id',$id)
         ->where('customer_id',$customer_id)

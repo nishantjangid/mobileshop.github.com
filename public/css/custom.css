@@ -113,6 +113,27 @@ html{
     font-weight: 600;
     box-shadow: 0px 1px 6px 0px #3c3b3b;
 }
+.itemCount
+{
+    animation: pop 3s linear infinite;
+}
+@keyframes pop
+{
+    0%
+    {
+        transform: translateY(10px) rotateX(30deg);
+        opacity: 1;
+    }
+    0%
+    {
+        transform: translateY(-10px) rotateY(30deg);
+        opacity: 0;
+    }    
+}
+/* {0%
+    {transform-origin:left bottom;opacity:1}
+    to{transform-origin:left bottom;opacity:0}
+} */
 
 /* Home page css */
 .swiper-container {
@@ -151,10 +172,13 @@ html{
     color: #fff;
     text-decoration: none;
 }
-
+.sliderPad
+{
+    padding-top: 10rem;
+}
 .allSectionSpaces
 {
-    padding: 3.5rem 0;
+    padding: 3.5rem 0 3.5rem 0;
 }
 .contentHeading{
     text-align: center;
@@ -1126,7 +1150,9 @@ nav .breadcrumb li a
         min-width: 100%;
         margin-left: 1rem;
     }
-
+    .slick-slide{
+        height:200px !important;
+     }    
     #cartWrapper .cartBxHeight
     {
         height: auto;
@@ -1167,4 +1193,6 @@ nav .breadcrumb li a
     #footer .footerDetail{
         font-size: 2rem;
     }
+
+
 }

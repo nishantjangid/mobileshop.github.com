@@ -25,6 +25,10 @@
                     <input type="text" class="form-control" name="product_title" placeholder="Enter Product Title">
                 </div>
                 <div class="form-group">
+                    <input type="text" class="form-control" name="product_url" placeholder="Enter Product url">
+                    <b>Please use "-" in url</b>
+                </div>                
+                <div class="form-group">
                     <select name="category_id" id="" class="form-control">
                         <option value="" disabled selected>Select brand</option> 
                         @foreach ($catData as $item)

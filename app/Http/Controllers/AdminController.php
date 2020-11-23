@@ -43,11 +43,14 @@ class AdminController extends Controller
         // $req->file('product_img1');
         $filemodel->category_id = $req->category_id;
         $filemodel->product_title = $req->product_title;
+        $filemodel->product_url = $req->product_url;
         $filemodel->product_description = $req->product_description;
         $filemodel->product_price = $req->product_price;
         $filemodel->product_discount = $req->product_discount;
         $filemodel->product_label = $req->product_label;
 
+        $file = $req->file('product_img1');
+        var_dump($file);
         $fileName = time().'_'.$req->file('product_img1')->getClientOriginalName();
         $filePath1 = $req->file('product_img1')->storeAs('productImages', $fileName, 'public');
         $fileName = time().'_'.$req->file('product_img2')->getClientOriginalName();
@@ -60,11 +63,11 @@ class AdminController extends Controller
         $filemodel->product_img2 =  $filePath2;
         $filemodel->product_img3 =  $filePath3;
         $filemodel->product_img4 =  $filePath4;
-
+    
         $filemodel->save();
         // return $filemodel;
         alert()->success('Product Has been added')->persistent('Close')->autoClose(3000);
-        return redirect('admin-area/insert-products');
+        return redirect('admin-area/view-products');
     }   
     
     public function allProduct()
@@ -105,6 +108,7 @@ class AdminController extends Controller
                     [
                         'category_id'=>$req->category_id,
                         'product_title'=>$req->product_title,
+                        'product_url'=>$req->product_url,
                         'product_description'=>$req->product_description,
                         'product_price'=>$req->product_price,
                         'product_discount'=>$req->product_discount,

@@ -17,7 +17,8 @@ class SliderController extends Controller
     public function index()
     {
         //
-        return view('admin-area/master');
+        $slider = slider::all();
+        return view('admin-area/master')->with('slider',$slider);
     }
 
     /**
@@ -40,11 +41,11 @@ class SliderController extends Controller
     {
         //
         $fileName = time().'_'.$request->file('slider_image')->getClientOriginalName();
-        $slider_image = $request->file('slider_image')->storeAs('productImages', $fileName, 'public');        
+        $slider_image = $request->file('slider_image')->storeAs('productImages', $fileName, 'public');
         $slider = new Slider;
         $slider->slider_title = $request->slider_title;
         $slider->slider_url = $request->slider_url;
-        $slider->slider_image = $request->slider_image;
+        $slider->slider_image = $slider_image;
         $slider->save();
         return redirect('admin-area/view-slider');
     }
@@ -58,6 +59,7 @@ class SliderController extends Controller
     public function show(slider $slider)
     {
         //
+        return view('admin-area/master')->with('slider',$slider);
     }
 
     /**
@@ -69,6 +71,7 @@ class SliderController extends Controller
     public function edit(slider $slider)
     {
         //
+        return view('admin-area/edit-slider')->with('slider', $slider);
     }
 
     /**
@@ -81,6 +84,26 @@ class SliderController extends Controller
     public function update(Request $request, slider $slider)
     {
         //
+        // return $slider->slider_title;
+        if($request->slider_image == ""){
+            return "no image";
+            $slider->update([
+                'slider_title'=>$request->slider_title,
+                'slider_url'=>$request->slider_url
+            ]);
+
+        }else{
+
+            $fileName = time().'_'.$request->file('slider_image')->getClientOriginalName();
+            $slider_image = $request->file('slider_image')->storeAs('productImages', $fileName, 'public');
+            
+            $slider->update([
+                'slider_title'=>$request->slider_title,
+                'slider_image'=>$slider_image,
+                'slider_url'=>$request->slider_url
+            ]);
+        }
+        return redirect('admin-area/view-slider');
     }
 
     /**
@@ -92,5 +115,7 @@ class SliderController extends Controller
     public function destroy(slider $slider)
     {
         //
+        $slider->delete();
+        return redirect('admin-area/view-slider');
     }
 }

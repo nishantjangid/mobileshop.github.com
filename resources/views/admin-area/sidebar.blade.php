@@ -4,7 +4,7 @@
         <h4>logo</h4>
     </div>
     <div class="companyName">
-        <h4>Mobeeshop</h4>
+        <h4><a href="/">MobeeShop </a></h4>
     </div>
 
 </div>

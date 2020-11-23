@@ -28,7 +28,7 @@ if(Session::has('user'))
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
 </head>
-<body>
+<body style="overflow-x:hidden ">
 <!-- Header goes here... -->
 <div class="header fixed-top">
 @section('header')
@@ -55,7 +55,7 @@ if(Session::has('user'))
         <a class="nav-item nav-link {{ (request()->is('shop')) ? 'navActive' : '' }}" href="/shop">Shop</a>
         <a class="nav-item nav-link {{ (request()->is('contact-us')) ? 'navActive' : '' }}" href="/contact-us">Contact Us</a>
         <a class="nav-item nav-link {{ (request()->is('myaccount')) ? 'navActive' : '' }}" href="/myaccount">My Account</a>        
-        <a class="nav-item nav-link {{ (request()->is('cart')) ? 'navActive' : '' }}" href="/cart">Cart <i class="fa fa-shopping-cart"></i> ({{$total}})</a>
+        <a class="nav-item nav-link {{ (request()->is('cart')) ? 'navActive' : '' }}" href="/cart">Cart <i class="fa fa-shopping-cart"></i> <span href="#" class="badge badge-danger itemCount">{{$total}}</span></a>
       </div>
       <form class="form-inline" action="/search" method="get">
         <input class="form-control mr-sm-2" type="search" name="q" aria-label="Search">

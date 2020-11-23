@@ -2,8 +2,12 @@
 
 @section('content')
 @include('sweet::alert')
-<div id="bannerImage" class="allSectionSpaces">
-    <img src="{{asset('images/Banner1.png')}}" alt="">
+<div id="bannerImage" class="sliderPad">
+    <div class="home-slider w-100">
+        @foreach ($slider as $item)
+            <a href="{{$item->slider_url}}"><img src="./{{$item->slider_image}}" class="w-100"></a>
+        @endforeach
+    </div>
 </div>
 <div class="container">
     <div class="row allSectionSpaces">
@@ -81,8 +85,8 @@
         
         <div class="proFilterButtons my-5">
             <button type="button" class="btn btn-default allBtnStyle filterBtn btnActive" data-filter="All">All</button>            
-            <button type="button" class="btn btn-default allBtnStyle filterBtn" data-filter="Newest">Newest</button>
-            <button type="button" class="btn btn-default allBtnStyle filterBtn" data-filter="Oldest">Oldest</button>
+            <button type="button" class="btn btn-default allBtnStyle filterBtn" data-filter="Latest">Latest</button>
+            <button type="button" class="btn btn-default allBtnStyle filterBtn" data-filter="Sale">On Sale</button>
         </div>
 
         <div class="LatestProductgallery">
@@ -97,11 +101,11 @@
                     <p>({{$discount}} %) OFF</p>
                 </div>
                 @endif
-                <a href="details/{{$items->product_title}}">
+                <a href="details/{{$items->product_url}}">
                     <img src="{{asset($items->product_img1)}}" alt="ProductImage1">
                 </a>
                 <div class="ProductBtn">
-                    <a href="details/{{$items->product_title}}" class="btn btn-default allBtnStyle viewBtn" >View Details</a>
+                    <a href="details/{{$items->product_url}}" class="btn btn-default allBtnStyle viewBtn" >View Details</a>
                                       
                 </div>    
                 <div class="productDetails">

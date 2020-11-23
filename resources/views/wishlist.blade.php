@@ -14,7 +14,13 @@
         <button type="button" class="close" data-dismiss="alert">&times;</button>
         <strong style="font-size: 2rem;">Item Successfully added into Cart</strong>.
     </div>
-    @endif 
+    @endif
+    @if(session('alertWrong'))
+    <div class="alert alert-warning alert-box alert-dismissible fade show mx-5">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        <strong style="font-size: 2rem;">Item Already added into Cart</strong>.
+    </div>
+    @endif     
     <div id="cartWrapper"> 
         <div class="row">
             <div class="col-md-3 col-sm-12">
@@ -34,7 +40,7 @@
                 <div class="row cartBxHeight boxShadow">
                     <div class="col-lg-3 col-md-12 col-sm-12">
                         <div class="productImage">
-                            <a href="details/{{$items->product_title}}">
+                            <a href="details/{{$items->product_url}}">
                                 <img src="{{asset($items->product_img1)}}" alt="productCartImage">
                             </a>
                         </div>

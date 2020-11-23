@@ -17,6 +17,7 @@ class CreateProductsTable extends Migration
             $table->id();
             $table->integer('category_id');
             $table->string('product_title');
+            $table->string('product_url');
             $table->string('product_description');
             $table->integer('product_price');
             $table->integer('product_discount');
@@ -24,8 +25,7 @@ class CreateProductsTable extends Migration
             $table->string('product_img2');
             $table->string('product_img3');
             $table->string('product_img4');
-            $table->string('product_label');
-            
+            $table->string('product_label');            
             $table->timestamps();
         });
     }

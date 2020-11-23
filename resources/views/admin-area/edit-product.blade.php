@@ -50,6 +50,9 @@
                             <input type="text" class="form-control" name="product_title" placeholder="Enter Product Title" value="{{$product->product_title}}">
                         </div>
                         <div class="form-group">
+                            <input type="text" class="form-control" name="product_url" placeholder="Enter Product Url" value="{{$product->product_url}}">
+                        </div>                        
+                        <div class="form-group">
                             <select name="category_id" id="" class="form-control">
                                 <option value="" disabled selected>Select brand</option> 
                                 @foreach ($catData as $item)

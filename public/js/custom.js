@@ -1,7 +1,16 @@
 $(document).ready(function(){
 
     //home page slider 
-
+    $('.home-slider').slick({
+        autoplay:true,
+        autoplaySpeed:2000,
+        infinite: true,
+        speed: 300,
+        slidesToShow: 1,
+        fade: true,
+        cssEase: 'linear',
+        mobilFirst:true
+    });
     // LatestProductOwlCarousel
 
     $('.demo').slick({

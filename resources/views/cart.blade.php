@@ -130,7 +130,7 @@ $totalPrice = 0;
             <div class="row cartBxHeight boxShadow">
                 <div class="col-lg-3 col-md-12 col-sm-12">
                     <div class="productImage">
-                        <a href="details/{{$items->product_title}}">
+                        <a href="details/{{$items->product_url}}">
                             <img src="{{asset($items->product_img1)}}" alt="productCartImage">
                         </a>
                     </div>
