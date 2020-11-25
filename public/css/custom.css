@@ -121,14 +121,16 @@ html{
 {
     0%
     {
-        transform: translateY(10px) rotateX(30deg);
-        opacity: 1;
+        transform: translateY(5px);
     }
-    0%
+    50%
     {
-        transform: translateY(-10px) rotateY(30deg);
-        opacity: 0;
-    }    
+        transform: translateY(-5px);
+    }   
+    100%
+    {
+        transform: translateY(5px);
+    }        
 }
 /* {0%
     {transform-origin:left bottom;opacity:1}

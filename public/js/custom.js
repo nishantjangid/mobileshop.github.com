@@ -73,18 +73,12 @@ $(document).ready(function(){
     });
 
     const priceRange = () => {
-        // /^([\w-\.]+@([\w-]+\.)+[\w-])?$/
-        // event.preventDefault();
 
-        const urls = window.location.search;
-        const urll = urls.replace('?pricerange=',"");
-        // const urll = urls.replace(/[?]+[A-Z a-z]+[=]+[A-Z a-z]+/,"");
-        // console.log(urll);
+        const params = new URLSearchParams(window.location.search);
         $('#priceRange').empty();
         $('.range').empty();
-        $('#priceRange').val(urll);
-        // $('.range').empty();
-        $('.range').text(urll);
+        $('#priceRange').val(params.get('pricerange'));
+        $('.range').text(params.get('pricerange'));
     }
 
     if(location.search != "")
